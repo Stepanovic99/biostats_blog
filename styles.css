@@ -1,0 +1,15 @@
+body {
+  line-height: 1.65;
+}
+
+.quarto-title-block .quarto-title-banner {
+  background: #004b96;
+}
+
+.listing-category {
+  border-radius: 0.25rem;
+}
+
+code {
+  font-size: 0.9em;
+}

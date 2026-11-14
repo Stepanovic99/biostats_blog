@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Biostatistics Notes",
+    "section": "",
+    "text": "Short, question-driven notes on biostatistical methods, study design, and reproducible analysis.\nEach post addresses one practical question, explains its assumptions, and provides examples or code where useful.\n\n\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\nQuestion phrased as a useful title\n\n\n\nsurvival-analysis\n\n\n\nOne-sentence summary of the question this post answers.\n\n\n\n\n\nNov 14, 2026\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is a public collection of short biostatistical notes.\nPosts aim to answer focused methodological questions and document my understanding. They are educational material, not statistical advice for a specific study."
+  },
+  {
+    "objectID": "about.html#conventions",
+    "href": "about.html#conventions",
+    "title": "About",
+    "section": "Conventions",
+    "text": "Conventions\nEach post normally includes:\n\na practical question;\na concise answer;\nthe relevant assumptions;\na worked example, simulation, or code where useful;\nlimitations and references.\n\nPosts use only simulated, public, or appropriately shareable data. They do not contain confidential, participant-level, or unpublished project material."
+  },
+  {
+    "objectID": "posts/post1.html",
+    "href": "posts/post1.html",
+    "title": "Question phrased as a useful title",
+    "section": "",
+    "text": "State the precise methodological question."
+  },
+  {
+    "objectID": "posts/post1.html#question",
+    "href": "posts/post1.html#question",
+    "title": "Question phrased as a useful title",
+    "section": "",
+    "text": "State the precise methodological question."
+  }
+]
