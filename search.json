@@ -1,17 +1,24 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Biostatistics Notes",
+    "objectID": "posts/bladj.html",
+    "href": "posts/bladj.html",
+    "title": "How does baseline adjustment work in an RCT?",
     "section": "",
-    "text": "Short, question-driven notes on biostatistical methods, study design, and reproducible analysis.\nEach post addresses one practical question, explains its assumptions, and provides examples or code where useful.\n\n\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\nQuestion phrased as a useful title\n\n\n\nsurvival-analysis\n\n\n\nOne-sentence summary of the question this post answers.\n\n\n\n\n\nNov 14, 2026\n\n\n\n\n\nNo matching items"
+    "text": "Patient\nGruppe\nBaseline (X)\nFollow-up (Y)\n\n\n\n\nA\nTreatment\n30\n60\n\n\nB\nTreatment\n40\n65\n\n\nC\nTreatment\n50\n70\n\n\nD\nKontrolle\n70\n70\n\n\nE\nKontrolle\n80\n75\n\n\nF\nKontrolle\n90\n80\n\n\n\nDer unadjustierte Schätzer ergibt sich aus:\n\\hat{\\beta}=\\bar{Y}_{Treatment}- \\bar{Y}_{Control}\ndas ergibt 65-75=-10. Der unadjustierte Treatmenteffekt ist also -10, was bedeutet, dass die QoL in der Treatmentgruppe 10 Punkte schlechter ist als in der Kontrollgruppe.\nDa Treatment binär ist, können wir die Regressionsgleichung zuerst separat für jedes Treatment betrachten. Für die Treatmentgruppe ergibt sich\nY_{Treatment}=\\beta_0 + \\beta_{bl}X\nBzgl. Baselinefaktor, erhöht sich die QoL um 5 Punkte bei einer Erhöhung der Baseline QoL um 10 Punkte (gilt für beide Treatmentgruppen). \\beta_{bl} ist deshalb 0.5. Also\nY_{Treatment}=\\beta_0 + 0.5X\nDa wir wissen, dass ein Patient mit X=30 ein Follow-up von Y=60 hat, können wir dies in (1) einsetzen. Hieraus ergibt sich \\beta_0=45 und\nY_{Treatment}=45 + 0.5X\nAnalog für die Kontrollgruppe ergibt sich\nY_{Kontrolle}=35 + 0.5X\nIn der echten ANCOVA betachten wir nicht zwei separate Gleichungen, sondern\nY=\\beta_0 + \\beta_1  \\times Treatment + \\beta_2 \\times Baseline\nVon Interesse ist \\beta_1.\nTreatment ist kodiert mit 1=Treatment und 0=Kontrolle.\nfür Treatment=1 gilt\nY=\\beta_0 + \\beta_1 + 0.5X\nwir wissen, dass\nY_{Treatment}=45 + 0.5X\nalso muss gelten\n\\beta_0 + \\beta_1=45\nund da \\beta_0=35 (Treatment=0 und Baseline=0), folgt\n\\beta_1=10\nmit dem finalen Modell\nY=35 + 10 \\times Treatment + 0.5 \\times Baseline\nInterpretation: Bei gleichem Baseline-QoL ist die erwartete Follow-up QoL unter Treatment um 10 Punkte höher als unter Kontrolle.\n\nNOTE: Für einen hypothetischen Patienten mit Baseline QoL von 50 ergibt sich ein adjustierter Treatment-Effekt von 10. Wir fragen also: Was ist der erwartete Unterschied zwischen Treatment und Kontrolle, wenn beide Gruppen hinsichtlich ihrer Baseline-QoL vergleichbar wären.\n\n\nNOTE: In einer echten RCT gibt es in der Regel keinen großen Unterschied im Punktschätzer zwischen adjustierter Analyse und unadjustierter Analyse, da Baseline durch die Randomisierung gleich verteilt ist. Der Vorteil liegt dann in einem genaueren Intervallschätzer."
+  },
+  {
+    "objectID": "posts/bladj.html#vereinfachtes-beispiel-einer-baseline-adjustierung",
+    "href": "posts/bladj.html#vereinfachtes-beispiel-einer-baseline-adjustierung",
+    "title": "How does baseline adjustment work in an RCT?",
+    "section": "",
+    "text": "Patient\nGruppe\nBaseline (X)\nFollow-up (Y)\n\n\n\n\nA\nTreatment\n30\n60\n\n\nB\nTreatment\n40\n65\n\n\nC\nTreatment\n50\n70\n\n\nD\nKontrolle\n70\n70\n\n\nE\nKontrolle\n80\n75\n\n\nF\nKontrolle\n90\n80\n\n\n\nDer unadjustierte Schätzer ergibt sich aus:\n\\hat{\\beta}=\\bar{Y}_{Treatment}- \\bar{Y}_{Control}\ndas ergibt 65-75=-10. Der unadjustierte Treatmenteffekt ist also -10, was bedeutet, dass die QoL in der Treatmentgruppe 10 Punkte schlechter ist als in der Kontrollgruppe.\nDa Treatment binär ist, können wir die Regressionsgleichung zuerst separat für jedes Treatment betrachten. Für die Treatmentgruppe ergibt sich\nY_{Treatment}=\\beta_0 + \\beta_{bl}X\nBzgl. Baselinefaktor, erhöht sich die QoL um 5 Punkte bei einer Erhöhung der Baseline QoL um 10 Punkte (gilt für beide Treatmentgruppen). \\beta_{bl} ist deshalb 0.5. Also\nY_{Treatment}=\\beta_0 + 0.5X\nDa wir wissen, dass ein Patient mit X=30 ein Follow-up von Y=60 hat, können wir dies in (1) einsetzen. Hieraus ergibt sich \\beta_0=45 und\nY_{Treatment}=45 + 0.5X\nAnalog für die Kontrollgruppe ergibt sich\nY_{Kontrolle}=35 + 0.5X\nIn der echten ANCOVA betachten wir nicht zwei separate Gleichungen, sondern\nY=\\beta_0 + \\beta_1  \\times Treatment + \\beta_2 \\times Baseline\nVon Interesse ist \\beta_1.\nTreatment ist kodiert mit 1=Treatment und 0=Kontrolle.\nfür Treatment=1 gilt\nY=\\beta_0 + \\beta_1 + 0.5X\nwir wissen, dass\nY_{Treatment}=45 + 0.5X\nalso muss gelten\n\\beta_0 + \\beta_1=45\nund da \\beta_0=35 (Treatment=0 und Baseline=0), folgt\n\\beta_1=10\nmit dem finalen Modell\nY=35 + 10 \\times Treatment + 0.5 \\times Baseline\nInterpretation: Bei gleichem Baseline-QoL ist die erwartete Follow-up QoL unter Treatment um 10 Punkte höher als unter Kontrolle.\n\nNOTE: Für einen hypothetischen Patienten mit Baseline QoL von 50 ergibt sich ein adjustierter Treatment-Effekt von 10. Wir fragen also: Was ist der erwartete Unterschied zwischen Treatment und Kontrolle, wenn beide Gruppen hinsichtlich ihrer Baseline-QoL vergleichbar wären.\n\n\nNOTE: In einer echten RCT gibt es in der Regel keinen großen Unterschied im Punktschätzer zwischen adjustierter Analyse und unadjustierter Analyse, da Baseline durch die Randomisierung gleich verteilt ist. Der Vorteil liegt dann in einem genaueren Intervallschätzer."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This is a public collection of short biostatistical notes.\nPosts aim to answer focused methodological questions and document my understanding. They are educational material, not statistical advice for a specific study."
+    "text": "I work as a biostatistician and in my daily work I design and analyze, mostly academic, clinical trials."
   },
   {
     "objectID": "about.html#conventions",
@@ -21,17 +28,10 @@
     "text": "Conventions\nEach post normally includes:\n\na practical question;\na concise answer;\nthe relevant assumptions;\na worked example, simulation, or code where useful;\nlimitations and references.\n\nPosts use only simulated, public, or appropriately shareable data. They do not contain confidential, participant-level, or unpublished project material."
   },
   {
-    "objectID": "posts/post1.html",
-    "href": "posts/post1.html",
-    "title": "Question phrased as a useful title",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Biostatistics Notes",
     "section": "",
-    "text": "State the precise methodological question."
-  },
-  {
-    "objectID": "posts/post1.html#question",
-    "href": "posts/post1.html#question",
-    "title": "Question phrased as a useful title",
-    "section": "",
-    "text": "State the precise methodological question."
+    "text": "This is a random collection of biostatistical issues, that came from my daily work with clinical trials.\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nHow does baseline adjustment work in an RCT?\n\n\n\n\n\n\n\ngeneral\n\n\n\n\nSimple example is provided.\n\n\n\n\n\n\nNov 14, 2026\n\n\n\n\n\n\nNo matching items"
   }
 ]
